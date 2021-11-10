@@ -37,4 +37,8 @@ you can easily do this by cloning the repository in a folder at your machine, an
 
 
 ## Team members
-This project was created by [Aseel AbuSahmoud](https://github.com/AseelL), [Husam Kamal](https://github.com/husamkamal) and [Muhanna Atalla](https://github.com/muhannaAtalla20) under the supervision and guidance of [Sara J.](https://github.com/sara219)
+This project was created by:
+ - [Aseel AbuSahmoud](https://github.com/AseelL)
+ - [Husam Kamal](https://github.com/husamkamal)
+ - [Muhanna Atalla](https://github.com/muhannaAtalla20) 
+ - [Sara J.](https://github.com/sara219) as a lead mentor
