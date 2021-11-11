@@ -77,3 +77,33 @@
 
     padding-left: 80%;
 }
+  /* Start input bar Section Style */
+.boxContainer {
+    display: flex;
+    width: 92vw;
+    height: 4rem;
+    border: 2px solid #B981A9;
+    border-radius: 50px;
+}
+.input-bar {
+    border: none;
+    height: 80%;
+    width: 70vw;
+    margin-top: 0.3rem;
+    margin-left: 2rem;
+    font-size: 18px;    
+    font-weight: 500;
+}
+.input-bar:focus {
+    outline: none;
+}
+.add-icon {
+    padding-top: 1.1rem;
+    padding-left: 0.5rem;
+    border-radius: 50px;
+    font-size: 1.25em;
+    color: #B981A9;
+    cursor: pointer;
+}
+
+/* End Task Bar Section Style */
