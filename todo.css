@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+    background-color: #F0F0F0;
+}
+
+
+:root {
+    --BG: #F0F0F0;
+    --PurpleText: #B981A9;
+    --Toggle: #E7F5FF;
+}
+
+.darkmode {
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    color: var(--PurpleText);
+    --Toggle: #423c74;
+
+}
+
+.lable1 {
+    width: 3em;
+    height: 1.5em;
+    border-radius: 30px;
+    background: #E7F5FF;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: #e0e0e0;
+    position: absolute;
+    cursor: pointer;
+
+}
+
+#checkbox {
+    display: none;
+}
+
+#checkbox:checked~.ball {
+    transform: translateX(1.5em);
+}
+
+.ball {
+    width: 1.1em;
+    height: 1.1em;
+    background-color: #FFAF96;
+    position: absolute;
+    border-radius: 50%;
+    margin-left: 3px;
+    cursor: pointer;
+    transition: all 250ms ease-in-out;
+}
+
+
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10%;
+}
+
+.page-name {
+    padding-top: 30%;
+    color: #B981A9;
+    font-weight: 1000;
+
+}
+
+.toggle {
+
+    padding-left: 80%;
+}
