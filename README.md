@@ -11,7 +11,7 @@ This project is a demonstration of a to-do app that allows the user to manage th
  - The user will be able to see their list if they reopen their browser window
  - The user will be able to toggle dark mode on and off and save that choice for next sessions
 ## Live link
-
+you can access the web page by simply clicking [here](https://gsg-cf04.github.io/team05-to-DO/) ✔
 
 ## How to get the project on your machine
 you can easily do this by cloning the repository in a folder at your machine, and we will walk you through those steps one by one :)
