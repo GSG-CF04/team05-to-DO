@@ -5,30 +5,50 @@
     margin: 0;
     box-sizing: border-box;
     font-family: "Montserrat", sans-serif;
-    background-color: #F0F0F0;
+    color: var(--main-font-color);
 }
+body{
+  background-color: var(--BG);
+}
+/* add global colors here */
 :root {
-    --BG: #F0F0F0;
-    --PurpleText: #B981A9;
-    --Toggle: #E7F5FF;
+  --BG: #F0F0F0;
+  --PurpleText: #B981A9;
+  --page-name:#B981A9;
+  --Toggle: #E7F5FF;
+  --main-font-color:black;
+  --Toggle-ball:#FFAF96;
+  --box-shadow:grey;
+  --add-colors:#F0CCC2;
+  --task-BG:#ffffff;
+}
+/* add dark mode alternatives here */
+/* make sure to not leave any element with a default color */
+.dark-mode{
+  --page-name:#F8E0F1;
+  --Toggle:#808AA4;
+  --BG: #525252;
+  --PurpleText: #B981A9;
+  --main-font-color:white;
+  --Toggle-ball:#A3A3A3;
+  --box-shadow:#b981a9;
+  --add-colors:#88574a;
+  --task-BG:#5a5a5a;
 }
 .darkmode {
     font-size: 16px;
     font-weight: 700;
     display: flex;
     align-items: center;
-    color: var(--PurpleText);
-    --Toggle: #423c74;
-
 }
 .lable1 {
     width: 3em;
     height: 1.5em;
     border-radius: 30px;
-    background: #E7F5FF;
+    background: var(--Toggle);
     border-style: solid;
     border-width: 0.5px;
-    border-color: #e0e0e0;
+    border-color:var(--Toggle-ball);
     position: absolute;
     cursor: pointer;
 
@@ -42,7 +62,7 @@
 .ball {
     width: 1.1em;
     height: 1.1em;
-    background-color: #FFAF96;
+    background-color:var(--Toggle-ball);
     position: absolute;
     border-radius: 50%;
     margin-left: 3px;
@@ -59,7 +79,7 @@
 }
 .page-name {
     padding-top: 30%;
-    color: #B981A9;
+    color: var(--page-name);
     font-weight: 1000;
 }
 .toggle {
@@ -77,17 +97,22 @@ form {
 .todo-input{
     height: 4rem;
     width: 18rem;
-    border: 4px solid #B981A9;
+    border: 4px solid var(--PurpleText);
+    background-color: var(--BG);
     border-right: none;
     padding: 20px;
+    font-size: 1.2rem;
     border-radius: 8px 0 0 8px;
+}
+.todo-input:focus {
+  outline: none;
 }
 .add-btn {
     color: white;
-    background-color: #F0CCC2;
+    background-color: var(--PurpleText);
 }
 .todo-button{
-    background-color: #F0CCC2 ;
+    background-color: var(--PurpleText) ;
     height: 4rem;
     width: 3.5rem;
     border: 4px solid #B981A9;
@@ -102,3 +127,141 @@ input::placeholder {
     padding-left: 1rem;
     font-size: 1rem;
 }
+/* End Task Bar Section Style */
+
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .bottom-section{
+      display: flex;
+      flex-direction: column;
+      margin-top: 2rem;
+      margin-left: .8rem;
+      
+  }
+  .bottom-section:hover{
+    cursor: default;
+  }
+  .section-task{
+      margin: 1rem ;
+      overflow: auto;
+     max-height: 15rem;
+  }
+  .tasks{
+      display: flex;
+      flex-direction: column;
+      font-size: 1.2rem;
+      padding: .3rem;
+      max-height: 25rem;
+      overflow:auto;
+  }
+
+  .task{
+      width: 21rem;
+      min-height: 4rem;
+      padding: 1rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top:2rem;
+      background-color: var(--task-BG);
+      box-shadow: 6px 6px 5px var(--box-shadow);
+      border-radius: 10px;
+    }
+  
+  .task-text{
+    margin-left: 2.5rem;
+    word-break: break-all;
+  }
+  .icon-container{
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  /* custom checkbox start  */
+  .checkbox-container{
+    position: relative;
+    padding-left: 10%;
+    display: block;
+    cursor: pointer;
+    font-size: 22px;
+    user-select: none;
+  }
+  .checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    border-radius: 21px;
+    background-color: rgb(177, 175, 175);
+  }
+  .checkbox-container:hover input ~ .checkmark {
+    background-color: rgb(119, 118, 118);
+  }  
+  .checkbox-container input:checked ~ .checkmark {
+    background-color: #B981A9;
+  }
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  .checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .checkbox-container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+  }
+/* custom checkbox finish  */
+
+  .del{
+      width: 90vw;
+      height: 3rem;
+      visibility: hidden;
+      margin-top: 2rem;
+      margin-left:.5rem;
+      background-color:#B981A9 ;
+      border-radius: 1rem;
+      color: white;
+      border :none;
+  }
+  .fa-pencil{
+      color: #B981A9;  
+      margin-right: .9rem;      
+  }
+  .fa-pencil:hover{
+    cursor: pointer;
+  
+  }
+  .fa-trash{
+      color: #B981A9;
+  }
+  .fa-trash:hover{
+    cursor: pointer;
+  }
+  .ch{
+    position: relative;
+    bottom: .5rem;
+    margin-top: 1rem;
+    margin-bottom: -.7rem;
+    margin-left: 1.3rem;
+  }
