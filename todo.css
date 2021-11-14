@@ -7,14 +7,11 @@
     font-family: "Montserrat", sans-serif;
     background-color: #F0F0F0;
 }
-
-
 :root {
     --BG: #F0F0F0;
     --PurpleText: #B981A9;
     --Toggle: #E7F5FF;
 }
-
 .darkmode {
     font-size: 16px;
     font-weight: 700;
@@ -24,7 +21,6 @@
     --Toggle: #423c74;
 
 }
-
 .lable1 {
     width: 3em;
     height: 1.5em;
@@ -37,15 +33,12 @@
     cursor: pointer;
 
 }
-
 #checkbox {
     display: none;
 }
-
 #checkbox:checked~.ball {
     transform: translateX(1.5em);
 }
-
 .ball {
     width: 1.1em;
     height: 1.1em;
@@ -57,7 +50,6 @@
     transition: all 250ms ease-in-out;
 }
 
-
 .header {
     display: flex;
     flex-direction: column;
@@ -65,15 +57,48 @@
     align-items: center;
     padding: 10%;
 }
-
 .page-name {
     padding-top: 30%;
     color: #B981A9;
     font-weight: 1000;
-
 }
-
 .toggle {
-
     padding-left: 80%;
 }
+/* Start input bar Section Style */
+form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 10vh;
+    margin-top: 1.5rem;
+}
+.todo-input{
+    height: 4rem;
+    width: 18rem;
+    border: 4px solid #B981A9;
+    border-right: none;
+    padding: 20px;
+    border-radius: 8px 0 0 8px;
+}
+.add-btn {
+    color: white;
+    background-color: #F0CCC2;
+}
+.todo-button{
+    background-color: #F0CCC2 ;
+    height: 4rem;
+    width: 3.5rem;
+    border: 4px solid #B981A9;
+    border-left: none;
+    border-radius: 0 8px 8px 0;
+}
+.todo-button:hover{
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+input::placeholder {
+    padding-left: 1rem;
+    font-size: 1rem;
+}
+/* End Task Bar Section Style */
