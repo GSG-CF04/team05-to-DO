@@ -33,7 +33,9 @@ const updateBtn = document.querySelector(".update-btn");
 
 // Events listener
 toDobutton.addEventListener("click", addTodo , true);
+toDolist.addEventListener("click" , checkNdelete);
 document.addEventListener("DOMContentLoaded", getTodos);
+
 
 // function 
 function addTodo(e){
@@ -48,7 +50,7 @@ function addTodo(e){
         NewTodo.textContent = toDoinput.value
     
         // the value we need to put inside the list 
-        NewTodo.classList.add("todo-item");
+        NewTodo.classListgitggti.add("todo-item");
         todoDiv.appendChild(NewTodo);
         saveTodolocally(toDoinput.value)
         // check button 
@@ -76,6 +78,7 @@ function addTodo(e){
     }
     
 }
+ 
 
 function saveTodolocally(todo){
     let todos ;
@@ -124,7 +127,7 @@ function getTodos(){
 
         // Deleted button 
         const trashButton = document.createElement("button");
-        trashButton.innerHTML = "<i class='far fa-trash-alt'></i>";
+        trashButton.innerHTML= "<i class='far fa-trash-alt'></i>";
         trashButton.classList.add("trash-btn");
         todoDiv.appendChild(trashButton);
     
@@ -133,4 +136,41 @@ function getTodos(){
     });
 }
 /* End Add Task Section */
+/*start delet and checked*/
+function checkNdelete(e) {
+    // console.log(e.target)
+    const item = e.target;
+    //delete 
+    if (item.classList[0] === "trash-btn"){
+        const todo = item.parentElement;
+        todo.remove();
+        removelocal(todo);
+    }
+    // checkmark 
+    if (item.classList[0] === "complete-btn"){
+        const todo = item.parentElement;
+        // toggle : checks the selected elements for visibility
+        todo.classList.toggle("completed");
+    }
+}
+/*end delet and checked*/
+// remove from local storge
+function removelocal(todo){
+ 
+    let todos ;
+    if(localStorage.getItem("todos") === null){
+        todos = [];
+    }
+    else{
+        todos = JSON.parse(localStorage.getItem("todos"))
+    };
+
+    const todoIndex = todo.children[0].innerText;
+
+    todos.splice(todos.indexOf(todoIndex) , 1);
+ 
+    localStorage.setItem("todos" , JSON.stringify(todos)); 
+
+}
+// end remove 
 
