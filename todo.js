@@ -33,7 +33,6 @@ const updateBtn = document.querySelector(".update-btn");
 
 // Events listener
 toDobutton.addEventListener("click", addTodo , true);
-toDolist.addEventListener("click" , checkNdelete);
 document.addEventListener("DOMContentLoaded", getTodos);
 
 
@@ -50,7 +49,7 @@ function addTodo(e){
         NewTodo.textContent = toDoinput.value
     
         // the value we need to put inside the list 
-        NewTodo.classListgitggti.add("todo-item");
+        NewTodo.classList.add("todo-item");
         todoDiv.appendChild(NewTodo);
         saveTodolocally(toDoinput.value)
         // check button 
@@ -70,6 +69,7 @@ function addTodo(e){
         trashButton.innerHTML = "<i class='far fa-trash-alt'></i>";
         trashButton.classList.add("trash-btn");
         todoDiv.appendChild(trashButton);
+        trashButton.addEventListener("click" , checkNdelete);
     
         // uppend to list 
         toDolist.appendChild(todoDiv);
@@ -130,6 +130,7 @@ function getTodos(){
         trashButton.innerHTML= "<i class='far fa-trash-alt'></i>";
         trashButton.classList.add("trash-btn");
         todoDiv.appendChild(trashButton);
+        trashButton.addEventListener("click" , checkNdelete);
     
        // uppend to list 
         toDolist.appendChild(todoDiv);
