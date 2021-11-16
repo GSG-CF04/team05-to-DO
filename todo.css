@@ -183,3 +183,17 @@ input::placeholder {
     text-decoration: line-through;
     opacity: .5;
 }
+/* Start media For desktop */
+@media screen and (min-width: 1024px) {
+    .header {
+        padding: 50px;
+    }
+}
+/* End media for desktop */
+/* Start media For tablet */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .header {
+        padding: 100px;
+    }
+}
+/* End media for tablet*/
