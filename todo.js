@@ -52,17 +52,13 @@ function addTodo(e){
         NewTodo.classList.add("todo-item");
         todoDiv.appendChild(NewTodo);
         saveTodolocally(toDoinput.value)
-        // check button 
-        const completedButton = document.createElement("button");
-        completedButton.innerHTML = "<i class='fas fa-check'></i>";
-        completedButton.classList.add("complete-btn");
-        todoDiv.appendChild(completedButton);
-
+        
         //update button
         const updateButton = document.createElement("button");
         updateButton.innerHTML = "<i class = 'fas fa-pen'></i>";
         updateButton.classList.add("update-btn");
         todoDiv.appendChild(updateButton);
+        updateButton.addEventListener("click" , updatefun);
 
         // Deleted button 
         const trashButton = document.createElement("button");
@@ -92,9 +88,8 @@ function saveTodolocally(todo){
     // saving
     localStorage.setItem("todos" , JSON.stringify(todos));
 }
-
 function getTodos(){
-    let todos ;
+    let todos ;    
     if(localStorage.getItem("todos") === null){
         todos = [];
     }
@@ -113,18 +108,13 @@ function getTodos(){
         // the value we need to put inside the list 
         NewTodo.classList.add("todo-item");
         todoDiv.appendChild(NewTodo);
-        // check button 
-        const completedButton = document.createElement("button");
-        completedButton.innerHTML = "<i class='fas fa-check'></i>";
-        completedButton.classList.add("complete-btn");
-        todoDiv.appendChild(completedButton);
-
+        
         //update button
         const updateButton = document.createElement("button");
         updateButton.innerHTML = "<i class = 'fas fa-pen'></i>";
         updateButton.classList.add("update-btn");
         todoDiv.appendChild(updateButton);
-
+        updateButton.addEventListener("click" , updatefun);
         // Deleted button 
         const trashButton = document.createElement("button");
         trashButton.innerHTML= "<i class='far fa-trash-alt'></i>";
@@ -139,7 +129,6 @@ function getTodos(){
 /* End Add Task Section */
 /*start delet and checked*/
 function checkNdelete(e) {
-    // console.log(e.target)
     const item = e.target;
     //delete 
     if (item.classList[0] === "trash-btn"){
@@ -147,14 +136,45 @@ function checkNdelete(e) {
         todo.remove();
         removelocal(todo);
     }
-    // checkmark 
-    if (item.classList[0] === "complete-btn"){
-        const todo = item.parentElement;
-        // toggle : checks the selected elements for visibility
-        todo.classList.toggle("completed");
-    }
+    
 }
 /*end delet and checked*/
+// edit
+let item; 
+function updatefun(e){
+    item = e.target.parentNode.parentNode.textContent
+    console.log(item)
+    window.value = item
+    // console.log(e.target.parentNode);
+    e.target.parentNode.parentNode.setAttribute("contenteditable","true");
+    let buttonCheck = document.createElement('button')
+    buttonCheck.setAttribute("class","check");
+    e.target.parentNode.parentNode.appendChild(buttonCheck);
+
+    const newCheckBtn = document.createElement("i");
+    newCheckBtn.setAttribute("class","fas fa-check");
+    buttonCheck.appendChild(newCheckBtn)
+    buttonCheck.setAttribute("onclick","updateitem(event)")
+
+}
+function updateitem(event){
+    let todos ;
+    if(localStorage.getItem("todos") === null){
+        todos = [];
+    }
+    else{
+        todos = JSON.parse(localStorage.getItem("todos"))
+    };
+    event.target.parentNode.parentNode.setAttribute("contenteditable","false")
+    toDoinput.value =  event.target.parentNode.firstChild.textContent
+    
+    console.log( event.target.parentNode.firstChild.textContent)
+    let index= todos.indexOf(item)
+    todos.splice(index,1,toDoinput.value)
+    localStorage.setItem("todos",JSON.stringify(todos))
+    toDoinput.value=" "
+    event.target.remove()
+    }
 // remove from local storge
 function removelocal(todo){
  
